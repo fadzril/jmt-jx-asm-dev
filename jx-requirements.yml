@@ -6,24 +6,39 @@ spec:
     schedule: ""
   cluster:
     devEnvApprovers:
-    - todo
-    environmentGitOwner: todo
+    - fadzril@jomcode.com
+    environmentGitOwner: Robugroup
     gitKind: github
     gitName: github
     gitServer: https://github.com
     provider: eks
+    project: "132002114579"
+    region: ap-southeast-1
+    registry: 132002114579.dkr.ecr.ap-southeast-1.amazonaws.com
   environments:
   - key: dev
+    owner: Robugroup
+    repository: jmt-jx-asm-dev
+  - ingress:
+      domain: stag.jimathub.com
+      externalDNS: true
+      kind: ingress
+      namespaceSubDomain: .
+      tls:
+        email: support@mail.jimathub.com
+        enabled: true
+        production: true
   - key: staging
   - key: production
   ingress:
-    domain: ""
-    externalDNS: false
+    domain: stag.jimathub.com
+    externalDNS: true
+    kind: ingress
     namespaceSubDomain: -jx.
     tls:
-      email: ""
-      enabled: false
-      production: false
+      email: support@mail.jimathub.com
+      enabled: true
+      production: true
   repository: nexus
   secretStorage: secretsManager
   vault: {}
